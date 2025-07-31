@@ -1,0 +1,43 @@
+.TH PENC 1
+.
+.SH NAME
+penc \- percent encode and decode
+.
+.SH SYNOPSIS
+.B penc
+[OPTION]... [FILE]...
+.
+.SH DESCRIPTION
+.PP
+Percent encode or decode FILE.
+.PP
+With no FILE, or when FILE is \-, read standard input.
+.TP
+.B \-d
+decode
+.TP
+.B \-n
+preserve newlines
+.TP
+.B \-p
+use plus-encoding for spaces ('+' instead of '%20')
+.TP
+.B \-h
+display help and exit
+.
+.SH EXAMPLES
+.TP
+echo hello world | penc
+Percent-encode the string 'hello world', including the trailing newline
+.TP
+echo hello world | penc -n
+Percent-encode the string 'hello world', ignoring the trailing newline
+.TP
+penc -d file.txt
+Percent-decode the contents of file.txt
+.
+.SH AUTHOR
+Written by Gal Zeira <gal_zeira@protonmail.com>.
+.
+.SH "REPORTING BUGS"
+Mail directly to the author.
