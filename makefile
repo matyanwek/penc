@@ -1,18 +1,14 @@
-.PHONY: all
+penc: main.c
+	cc -o penc main.c
 
-all:
-	cc -o penc penc.c
-
-.PHONY: install
-
-install:
-	mkdir -p /usr/local/bin /usr/local/share/man/man1
-	cc -o penc penc.c
+install: penc penc.1
+	mkdir -p /usr/local/bin
 	cp penc /usr/local/bin
+	mkdir -p /usr/local/share/man/man1
 	cp penc.1 /usr/local/share/man/man1
 
-.PHONY: test
-
-test:
-	cc -o penc penc.c
+test: penc
 	./test.sh
+
+clean: penc
+	rm penc
